@@ -1,3 +1,4 @@
+require('console.table')
 const { Client } = require('pg')
 const client = new Client({connectionString: `postgres://localhost:5432/cli_todolist`})
 client.connect()
@@ -20,6 +21,17 @@ const addTask = task => {
   .catch( err => console.log(err.message) )
 }
 
+const listTasks = () => {
+  client.query(`
+    SELECT * FROM todolist
+  `)
+  .then( data => {
+    console.table('To Do List',data.rows)
+    console.log(`You have ${data.rows.length} tasks.`)
+    client.end()
+  })
+}
+
 module.exports = {
-  addTask
+  addTask, listTasks
 }
