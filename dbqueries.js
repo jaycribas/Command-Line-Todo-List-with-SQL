@@ -32,8 +32,9 @@ const listTasks = () => {
   })
 }
 
-const deleteTask = taskID => {
-  client.query(`
+const deleteQuery = (taskID) => {
+  return client.query(
+  `
     DELETE FROM
       todolist
     WHERE
@@ -41,12 +42,24 @@ const deleteTask = taskID => {
     RETURNING
       *
   `)
+}
+
+const deleteTask = taskID => {
+  deleteQuery(taskID)
   .then( data => {
     console.log(`Deleted task ${data.rows[0].id}: ${data.rows[0].description}`)
     client.end()
   })
 }
 
+const completeTask = taskID => {
+  deleteQuery(taskID)
+  .then( data => {
+    console.log(`Completed task ${data.rows[0].id}: ${data.rows[0].description}`)
+    client.end()
+  })
+}
+
 module.exports = {
-  addTask, listTasks, deleteTask
+  addTask, listTasks, deleteTask, completeTask
 }

@@ -1,5 +1,8 @@
 const db = require('../dbqueries');
 
-module.exports = (taskID) => {
-  db.deleteTask(taskID)
+module.exports = (command, taskID) => {
+  if(command == 'complete')
+    db.completeTask(taskID)
+  else
+    db.deleteTask(taskID)
 }
