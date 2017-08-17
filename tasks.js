@@ -16,7 +16,7 @@ switch (command) {
   case 'complete':
   case 'delete':
     const taskID = process.argv[3]
-    complete(taskID)
+    complete(command, taskID)
     break;
   default:
     console.log('No.')
