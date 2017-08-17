@@ -15,7 +15,7 @@ const addTask = task => {
     [ task ]
   )
   .then( data => {
-    console.log(`Created task`, data.rows[0].id)
+    console.log(`Created task ${data.rows[0].id}`)
     client.end()
   })
   .catch( err => console.log(err.message) )
@@ -32,6 +32,21 @@ const listTasks = () => {
   })
 }
 
+const deleteTask = taskID => {
+  client.query(`
+    DELETE FROM
+      todolist
+    WHERE
+      id = ${taskID}
+    RETURNING
+      *
+  `)
+  .then( data => {
+    console.log(`Deleted task ${data.rows[0].id}: ${data.rows[0].description}`)
+    client.end()
+  })
+}
+
 module.exports = {
-  addTask, listTasks
+  addTask, listTasks, deleteTask
 }
