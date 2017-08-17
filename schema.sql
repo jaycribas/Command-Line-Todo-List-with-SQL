@@ -5,6 +5,5 @@ CREATE DATABASE cli_todolist;
 
 CREATE TABLE todolist(
   id SERIAL PRIMARY KEY,
-  task VARCHAR NOT NULL,
-  is_complete BOOLEAN DEFAULT false
+  description VARCHAR NOT NULL
 );

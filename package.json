@@ -1,0 +1,23 @@
+{
+  "name": "command-line-todo-list-with-sql",
+  "version": "1.0.0",
+  "description": "This benchmark module is the 3rd of a series of modules designed to take the same problem and make it increasingly more complex as you learn new skills.",
+  "main": "tasks.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:schema:load": "psql < schema.sql"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaycribas/Command-Line-Todo-List-with-SQL.git"
+  },
+  "author": "Jay Cribas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaycribas/Command-Line-Todo-List-with-SQL/issues"
+  },
+  "homepage": "https://github.com/jaycribas/Command-Line-Todo-List-with-SQL#readme",
+  "dependencies": {
+    "pg": "^7.1.2"
+  }
+}
