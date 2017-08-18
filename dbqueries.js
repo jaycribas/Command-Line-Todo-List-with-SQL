@@ -1,7 +1,5 @@
+const client = require('./client');
 require('console.table')
-const { Client } = require('pg')
-const client = new Client({connectionString: `postgres://localhost:5432/cli_todolist`})
-client.connect()
 
 const addTask = task => {
   client.query(`
