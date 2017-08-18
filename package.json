@@ -4,7 +4,7 @@
   "description": "This benchmark module is the 3rd of a series of modules designed to take the same problem and make it increasingly more complex as you learn new skills.",
   "main": "tasks.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha test/setup test",
     "db:schema:load": "psql < schema.sql"
   },
   "repository": {
@@ -20,5 +20,9 @@
   "dependencies": {
     "console.table": "^0.8.0",
     "pg": "^7.1.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0"
   }
 }
