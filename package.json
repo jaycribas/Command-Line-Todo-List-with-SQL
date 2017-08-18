@@ -26,3 +26,5 @@
     "mocha": "^3.5.0"
   }
 }
+
+/*missing scripts to set up the database. need one for create db*/
