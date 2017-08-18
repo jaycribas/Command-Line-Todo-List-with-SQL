@@ -3,12 +3,9 @@ require('console.table')
 
 const addTask = task => {
   client.query(`
-    INSERT INTO
-      todolist (description)
-    VALUES
-      ($1)
-    RETURNING
-      id
+    INSERT INTO todo_list (description)
+    VALUES ($1)
+    RETURNING id
     `,
     [ task ]
   )
@@ -21,7 +18,7 @@ const addTask = task => {
 
 const listTasks = () => {
   client.query(`
-    SELECT * FROM todolist
+    SELECT * FROM todo_list
   `)
   .then( data => {
     console.table('To Do List',data.rows)
@@ -33,12 +30,9 @@ const listTasks = () => {
 const deleteQuery = (taskID) => {
   return client.query(
   `
-    DELETE FROM
-      todolist
-    WHERE
-      id = ${taskID}
-    RETURNING
-      *
+    DELETE FROM todo_list
+    WHERE id = ${taskID}
+    RETURNING *
   `)
 }
 

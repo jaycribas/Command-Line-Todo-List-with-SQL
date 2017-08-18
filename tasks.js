@@ -19,5 +19,5 @@ switch (command) {
     complete(command, taskID)
     break;
   default:
-    console.log('No.')
+    console.log('Please use one of the following command options: add, list, complete, delete.')
 }

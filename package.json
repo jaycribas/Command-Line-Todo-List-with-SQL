@@ -4,8 +4,10 @@
   "description": "This benchmark module is the 3rd of a series of modules designed to take the same problem and make it increasingly more complex as you learn new skills.",
   "main": "tasks.js",
   "scripts": {
-    "test": "mocha test/setup test",
-    "db:schema:load": "psql < schema.sql"
+    "test": "export NODE_ENV=test && mocha test/setup test",
+    "db:drop:test": "dropdb test_todo",
+    "db:create": "createdb todo_list; psql todo_list < schema.sql",
+    "db:create:test": "createdb test_todo_list; psql test_todo_list < test_schema.sql"
   },
   "repository": {
     "type": "git",
