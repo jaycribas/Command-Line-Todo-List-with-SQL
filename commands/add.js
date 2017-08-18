@@ -1,8 +1,10 @@
 const db = require('../dbqueries');
 
-module.exports = task => {
+const add = task => {
   if(task)
     db.addTask(task)
   else
     throw new Error('Enter something.')
 }
+
+module.exports = add

@@ -1,5 +1,7 @@
 const db = require('../dbqueries');
 
-module.exports = () => {
+const list = () => {
   db.listTasks()
 }
+
+module.exports = list
