@@ -2,14 +2,14 @@
 const print = require('node-print').pt
 
 const command = process.argv[2]
-// const add = require('./commands/add')
+const add = require('./commands/add')
 const list = require('./commands/list')
 // const complete = require('./commands/complete')
 
 switch (command) {
   case 'add':
     const task = process.argv.slice(3).join(' ')
-    add(task)
+    add(task, console.log)
     break;
   case 'list':
     list(print)
