@@ -6,6 +6,17 @@ function listTasks(callback){
     `, callback)
 }
 
+function addTask(description, callback){
+  return client.query(`
+    INSERT INTO
+      todolist (description)
+    VALUES
+      ($1)
+    RETURNING
+      id
+  `, [ description ], callback)
+}
+
 // const addTask = task => {
 //   client.query(`
 //     INSERT INTO
@@ -53,7 +64,7 @@ function listTasks(callback){
 // }
 module.exports = {
   listTasks,
-  // addTask,
+  addTask,
   // deleteTask,
   // completeTask
 }
