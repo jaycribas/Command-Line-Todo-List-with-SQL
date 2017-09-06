@@ -1,5 +1,13 @@
-const db = require('../dbqueries');
+const db = require('../dbqueries')
+const client = require('../client')
 
-module.exports = () => {
-  db.listTasks()
+module.exports = callback => {
+  db.listTasks(function(error, tasks){
+    if (error)
+      callback(error)
+    else{
+      callback(tasks.rows)
+      client.end()
+    }
+  })
 }

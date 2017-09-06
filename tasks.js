@@ -1,9 +1,10 @@
 #!/usr/bin/env node
+const print = require('node-print').pt
 
 const command = process.argv[2]
-const add = require('./commands/add')
+// const add = require('./commands/add')
 const list = require('./commands/list')
-const complete = require('./commands/complete')
+// const complete = require('./commands/complete')
 
 switch (command) {
   case 'add':
@@ -11,7 +12,7 @@ switch (command) {
     add(task)
     break;
   case 'list':
-    list()
+    list(print)
     break;
   case 'complete':
   case 'delete':
